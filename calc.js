@@ -111,7 +111,7 @@ operatorButtons.forEach(button => {
             }
 
         //below is the clearing part
-        } else if (buttonText === "c") {
+        } else if (buttonText === "C") {
             firstNumber = '';
             secondNumber = '';
             currentOperator = '';
