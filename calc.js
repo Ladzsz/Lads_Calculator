@@ -47,16 +47,20 @@ function divide(num1, num2) {
 
 
 function operate(num1, num2, opp) {
+    let result;
     if (opp == "+") {
-        add(num1, num2)
+        result = add(num1, num2)
     } else if (opp == "-") {
-        subtract(num1, num2)
+        result = subtract(num1, num2)
     } else if (opp == "*") {
-        multiply(num1, num2)
+        result = multiply(num1, num2)
     } else {
-        divide(num1, num2)
+        result = divide(num1, num2)
     }
 
+    return result
+    //note for me, i fixed the a type error issue because 
+    //i forgot to return result here.
 }
 
 
@@ -97,6 +101,7 @@ operatorButtons.forEach(button => {
         if (buttonText == "=") {
             
             if (currentOperator) {
+                    
             let result = operate(parseFloat(firstNumber), parseFloat(secondNumber), currentOperator);
                 updateDisplay(result);
                 firstNumber = result.toString();
@@ -106,11 +111,11 @@ operatorButtons.forEach(button => {
             }
 
         //below is the clearing part
-        } else if (buttonText == "c") {
+        } else if (buttonText === "c") {
             firstNumber = '';
             secondNumber = '';
             currentOperator = '';
-            isFirstNumber = true;
+            isFirstNumber = true; // Reset to true
             updateDisplay('');
 
             //below is the part lets the user do two numbers
